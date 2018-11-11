@@ -2,17 +2,13 @@
 
 This is a simple chat application that allows user to:
 
-	- [x] register
-	- [X] login implements JWT
-	- [x] view profile
-	- [x] edit profile 
-	- [x] create a chat
-	- [x] edit a chat
-	- [x] edit profile/chat implements security(Only owner can edit)
-	- [x] list all chats
-	- [x] view all messages in a chat
-	- [x] create a message in a chat
-	- [x] logout
+	-  create a chat
+	-  edit a chat
+	-  edit profile/chat implements security(Only owner can edit)
+	-  list all chats
+	-  view all messages in a chat
+	-  create a message in a chat
+	-  logout
 
 # Technologies
 	- Java
@@ -20,9 +16,6 @@ This is a simple chat application that allows user to:
 	- JUnit, Mockito
 	- Maven
 	- MySQL
-	- Log4j2
-	- JSON Web Token
-	- Redis
 
 # Requirements 
 What you will need:
@@ -36,8 +29,7 @@ What you will need:
 ### Database configuration
 - You can change the database's connection and name in application.properties, you can find it inside resources directory
 - Here I'm using root as my username and password, you can change according to your current configuration
- <img src="https://github.com/roat167/SimpleChat/blob/master/screenshot/databaseConfig.jpg" width="800"/>
-	
+
 # Build
 From the root of project directory (you will find pom.xml file there) run the following command
 	
@@ -57,27 +49,14 @@ The application will initialize some data from sample data set in import.sql in 
 ### Register
 - url: http://localhost:8080/register	(POST)	
 		
-		{		
-		"username": "reg",
+		{
+		"username": "admin",
 		"password": "1234",
-		"firstName": "reg",
+		"firstName": "admin",
 		"lastName": "user",
-		"email": "test@gmail.com"
+		"email": "admin@gmail.com"
 		}
 
-### Login
-- url: http://localhost:8080/login	(POST)	sample data
-
-		{		
-		"username": "reg",
-		"password": "1234"
-		}
-
-- Upon successful login it will return  jwt token
-
-### Logout
-- url: http://localhost:8080/logout	(GET)
-- It should return successfully logout message
 
 ### User list
 - url: http://localhost:8080/api/users	(GET)	return list of users
@@ -90,11 +69,11 @@ url: http://localhost:8080/api/users (POST), sample data (id is not required, se
  
 		 {
 		"id":"7",
-		"username": "uzer7",
+		"username": "shopper",
 		"password": "1234",
-		"firstName": "Python",
-		"lastName": "Piper",
-		"email": "test@gmail.com"
+		"firstName": "shopper",
+		"lastName": "hf",
+		"email": "shopper@shop.com"
 		}		 
 ### view user
 url: http://localhost:8080/api/users/1 (GET), 1 is user id
@@ -104,11 +83,11 @@ url: http://localhost:8080/api/users (PATCH), sample data
  
 		 {
 		"id":"7",
-		"username": "uzer7",
+		"username": "driver",
 		"password": "1234",
-		"firstName": "Python Update",
-		"lastName": "Piper",
-		"email": "test@gmail.com"
+		"firstName": "driver",
+		"lastName": "hf",
+		"email": "driver@drive.com"
 		}
 		
 ### Chat list
@@ -172,13 +151,3 @@ url: http://localhost:8080/api/messages/1 (GET), 1 is chat message id
 		"postedDate": "2016-11-04T22:44:30.652"
 		}
 
-
-### Versioning
-The api path '/api/' can be change in application.properties file. You can find the file under resources directory
-
-		api.path: api
-
-# Contributor
-
-- Name : Khemroat Loem
-- Email : khemroat@gmail.com
